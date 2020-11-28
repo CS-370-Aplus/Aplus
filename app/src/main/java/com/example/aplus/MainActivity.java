@@ -53,7 +53,7 @@ public class MainActivity extends FragmentActivity {
                     newFragment = new registerFragment();
                     break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + position);
+                    throw new IllegalStateException("Unexpected value of position: " + position);
             }
             return newFragment;
         }
