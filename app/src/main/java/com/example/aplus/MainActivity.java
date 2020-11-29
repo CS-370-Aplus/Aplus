@@ -1,6 +1,7 @@
 package com.example.aplus;
 
 import android.os.Bundle;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
