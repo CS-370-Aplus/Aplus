@@ -23,9 +23,9 @@ public class loginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_login, container, false);
-        final EditText loginEmail = (EditText) v.findViewById(R.id.login_email);
-        final EditText loginPassword = (EditText) v.findViewById(R.id.login_password);
-        final Button loginBtn = (Button) v.findViewById(R.id.login);
+        final EditText loginEmail = v.findViewById(R.id.login_email);
+        final EditText loginPassword = v.findViewById(R.id.login_password);
+        final Button loginBtn = v.findViewById(R.id.login);
 
         loginEmail.addTextChangedListener(new TextWatcher() {
             @Override
@@ -37,11 +37,26 @@ public class loginFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() != 0){
-                    loginBtn.setEnabled(true);
-                }else{
+                loginBtn.setEnabled(charSequence.length() != 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        loginPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.length() == 0){
                     loginBtn.setEnabled(false);
                 }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                loginBtn.setEnabled(charSequence.length() != 0);
             }
 
             @Override
