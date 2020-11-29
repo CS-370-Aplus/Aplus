@@ -2,6 +2,9 @@
     <string name="app_name">Aplus</string>
     <string name="enter_your_e_mail">Enter your E-mail</string>
     <string name="enter_your_password">Enter your Password</string>
+    <string name="reenter_your_password">Re-Enter your Password</string>
+    <string name="enter_your_name">Enter your Full Name</string>
+    <string name="enter_your_username">Enter your Username</string>
     <string name="log_in">Log In</string>
     <string name="register">Register</string>
     <string name="left_arrow">Left Arrow</string>
@@ -9,4 +12,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swipe_left_for_login">Swipe Left for LogIn</string>
     <string name="swipe_right_for_register">Swipe Right for Register</string>
+    <string name="register_as">Register as:</string>
+    <string name="buyer">Buyer</string>
+    <string name="seller">Seller</string>
 </resources>

@@ -7,84 +7,133 @@
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/login_email"
-        style="@style/login_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:hint="@string/enter_your_e_mail"
-        android:autofillHints="@string/enter_your_e_mail"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <EditText
-        android:id="@+id/login_password"
-        style="@style/login_input"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:hint="@string/enter_your_password"
-        android:inputType="textPassword"
-        android:imeActionLabel="@string/log_in"
-        android:imeOptions="actionDone"
-        android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_email"
-        app:layout_constraintVertical_bias="0.081"
-        android:autofillHints="@string/enter_your_password" />
+        <LinearLayout
+            android:id="@+id/register_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="50sp"
+            android:verticalScrollbarPosition="defaultPosition">
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:height="60dp"
-        android:enabled="false"
-        android:text="@string/register"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintVertical_bias="0.144" />
+            <EditText
+                android:id="@+id/login_name"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="@string/enter_your_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_above="@id/swipeLeft"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/left_arrow"
-        android:src="@drawable/icon_left_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.202" />
+            <EditText
+                android:id="@+id/login_username"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="@string/enter_your_username"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
 
-    <TextView
-        android:id="@+id/swipeLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="@string/swipe_left_for_login"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.01" />
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:autofillHints="@string/enter_your_e_mail"
+                android:hint="@string/enter_your_e_mail"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true" />
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:autofillHints="@string/enter_your_password"
+                android:ems="10"
+                android:hint="@string/enter_your_password"
+                android:imeActionLabel="@string/log_in"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+            <EditText
+                android:id="@+id/login_password2"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:autofillHints="@string/enter_your_password"
+                android:ems="10"
+                android:hint="@string/reenter_your_password"
+                android:imeActionLabel="@string/log_in"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/register_as"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/buyerRadioBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:ems="10"
+                    android:text="@string/buyer" />
+
+                <RadioButton
+                    android:id="@+id/sellerRadioBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:ems="10"
+                    android:text="@string/seller" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:height="60dp"
+                android:enabled="false"
+                android:text="@string/register"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="50sp"
+                android:contentDescription="@string/left_arrow"
+                android:src="@drawable/icon_left_arrow" />
+
+            <TextView
+                android:id="@+id/swipeLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/swipe_left_for_login"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
