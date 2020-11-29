@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,17 +22,40 @@
             android:id="@+id/register_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50sp"
             android:gravity="center|center_horizontal"
             android:orientation="vertical"
             android:paddingTop="50sp"
+            android:paddingBottom="50sp"
             android:verticalScrollbarPosition="defaultPosition">
 
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/akronim"
+                android:text="@string/app_title"
+                android:textColor="@color/black"
+                android:textSize="45sp"
+                app:layout_constraintBottom_toTopOf="@+id/login_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
-                android:id="@+id/login_name"
+                android:id="@+id/login_firstname"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:hint="@string/enter_your_name"
+                android:hint="@string/first_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
+
+            <EditText
+                android:id="@+id/login_lastname"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:hint="@string/last_name"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:selectAllOnFocus="true" />
@@ -40,7 +64,7 @@
                 android:id="@+id/login_username"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:hint="@string/enter_your_username"
+                android:hint="@string/username"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:selectAllOnFocus="true" />
@@ -49,8 +73,8 @@
                 android:id="@+id/login_email"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:autofillHints="@string/enter_your_e_mail"
-                android:hint="@string/enter_your_e_mail"
+                android:autofillHints="E-mail"
+                android:hint="@string/e_mail"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:selectAllOnFocus="true" />
@@ -59,9 +83,9 @@
                 android:id="@+id/login_password"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:autofillHints="@string/enter_your_password"
+                android:autofillHints="Password"
                 android:ems="10"
-                android:hint="@string/enter_your_password"
+                android:hint="@string/password"
                 android:imeActionLabel="@string/log_in"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
@@ -71,9 +95,9 @@
                 android:id="@+id/login_password2"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
-                android:autofillHints="@string/enter_your_password"
+                android:autofillHints="Confirm Password"
                 android:ems="10"
-                android:hint="@string/reenter_your_password"
+                android:hint="@string/confirm_password"
                 android:imeActionLabel="@string/log_in"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
