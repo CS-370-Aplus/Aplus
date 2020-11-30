@@ -46,6 +46,7 @@
                 android:id="@+id/login_firstname"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_person"
                 android:hint="@string/first_name"
                 android:importantForAutofill="no"
                 android:inputType="text" />
@@ -54,6 +55,7 @@
                 android:id="@+id/login_lastname"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_person"
                 android:hint="@string/last_name"
                 android:importantForAutofill="no"
                 android:inputType="text" />
@@ -62,6 +64,7 @@
                 android:id="@+id/login_username"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_user"
                 android:hint="@string/username"
                 android:importantForAutofill="no"
                 android:inputType="text" />
@@ -70,6 +73,7 @@
                 android:id="@+id/login_email"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_email"
                 android:hint="@string/e_mail"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress" />
@@ -78,6 +82,7 @@
                 android:id="@+id/login_password"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_password"
                 android:hint="@string/password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword" />
@@ -86,6 +91,7 @@
                 android:id="@+id/login_password2"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_password"
                 android:hint="@string/confirm_password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword" />
@@ -125,6 +131,7 @@
                 android:id="@+id/login_zipcode"
                 style="@style/Login_EditText"
 
+                android:drawableEnd="@drawable/ic_location"
                 android:hint="@string/zip_code"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"/>

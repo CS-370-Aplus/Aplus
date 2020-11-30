@@ -24,6 +24,7 @@
         android:id="@+id/login_email"
         style="@style/Login_EditText"
 
+        android:drawableEnd="@drawable/ic_user"
         android:inputType="textEmailAddress"
         android:autofillHints="@string/username"
         android:hint="@string/username"
@@ -39,6 +40,7 @@
         android:id="@+id/login_password"
         style="@style/Login_EditText"
 
+        android:drawableEnd="@drawable/ic_password"
         android:autofillHints="@string/password"
         android:hint="@string/password"
         android:inputType="textPassword"
