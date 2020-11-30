@@ -113,8 +113,8 @@
                     android:id="@+id/buyerRadioBtn"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:ems="10"
                     android:text="@string/buyer"
+                    android:checked="true"
                     android:fontFamily="@font/abhaya_libre_medium"
                     android:textSize="20sp"/>
 
@@ -122,8 +122,9 @@
                     android:id="@+id/sellerRadioBtn"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:ems="10"
-                    android:text="@string/seller" />
+                    android:text="@string/seller"
+                    android:fontFamily="@font/abhaya_libre_medium"
+                    android:textSize="20sp"/>
 
             </RadioGroup>
 

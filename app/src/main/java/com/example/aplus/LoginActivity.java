@@ -39,6 +39,10 @@ public class LoginActivity extends FragmentActivity {
         }
     }
 
+    public void replaceFragments(int pos) {
+            viewPager.setCurrentItem(pos);
+    }
+
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter{
         public ScreenSlidePagerAdapter(FragmentActivity fa){
             super(fa);
