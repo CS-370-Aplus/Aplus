@@ -44,70 +44,57 @@
 
             <EditText
                 android:id="@+id/login_firstname"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                style="@style/Login_EditText"
+
                 android:hint="@string/first_name"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:selectAllOnFocus="true" />
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/login_lastname"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                style="@style/Login_EditText"
+
                 android:hint="@string/last_name"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:selectAllOnFocus="true" />
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/login_username"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
+                style="@style/Login_EditText"
+
                 android:hint="@string/username"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:selectAllOnFocus="true" />
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/login_email"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:autofillHints="E-mail"
+                style="@style/Login_EditText"
+
                 android:hint="@string/e_mail"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:selectAllOnFocus="true" />
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/login_password"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:autofillHints="Password"
-                android:ems="10"
+                style="@style/Login_EditText"
+
                 android:hint="@string/password"
-                android:imeActionLabel="@string/log_in"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true" />
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/login_password2"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:autofillHints="Confirm Password"
-                android:ems="10"
+                style="@style/Login_EditText"
+
                 android:hint="@string/confirm_password"
-                android:imeActionLabel="@string/log_in"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true" />
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:fontFamily="@font/abhaya_libre_bold"
                 android:text="@string/register_as"
                 android:textSize="20sp" />
 
@@ -121,7 +108,9 @@
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:ems="10"
-                    android:text="@string/buyer" />
+                    android:text="@string/buyer"
+                    android:fontFamily="@font/abhaya_libre_medium"
+                    android:textSize="20sp"/>
 
                 <RadioButton
                     android:id="@+id/sellerRadioBtn"
@@ -134,27 +123,24 @@
 
             <EditText
                 android:id="@+id/login_zipcode"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:autofillHints="ZIP Code"
-                android:ems="10"
+                style="@style/Login_EditText"
+
                 android:hint="@string/zip_code"
-                android:imeActionLabel="@string/log_in"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true" />
+                android:importantForAutofill="no"
+                android:inputType="textPassword"/>
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/btnRegister"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
                 android:height="60dp"
                 android:text="@string/register"
-                android:textSize="18sp" />
+                android:fontFamily="@font/abhaya_libre_bold"
+                android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/swipeLeft"
+                android:id="@+id/goLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

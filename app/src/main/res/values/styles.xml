@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="login_input">
-        <item name="android:layout_width">298dp</item>
-        <item name="android:layout_height">62dp</item>
-        <item name="android:ems">10</item>
-        <item name="android:inputType">textEmailAddress</item>
-    </style>
-
-    <style name="login_input.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Login_EditText">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:fontFamily">@font/abhaya_libre_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:selectAllOnFocus">true</item>
     </style>
 </resources>

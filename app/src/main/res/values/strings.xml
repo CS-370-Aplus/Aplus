@@ -24,4 +24,5 @@
     <string name="home_text">"Home "</string>
     <string name="zip_code">ZIP Code</string>
     <string name="already_a_member_login">Already a member? LogIn</string>
+    <string name="create_new_account_signup">Create new account? SignUp</string>
 </resources>

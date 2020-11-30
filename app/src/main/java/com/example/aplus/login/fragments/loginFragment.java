@@ -30,14 +30,7 @@ public class loginFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_login, container, false);
         loginEmail = v.findViewById(R.id.login_email);
         loginPassword = v.findViewById(R.id.login_password);
-        loginBtn = v.findViewById(R.id.login);
-        loginBtn.setOnClickListener(view -> {
-            String username = loginEmail.getText().toString();
-            String password = loginPassword.getText().toString();
-            String type = "login";
-
-
-        });
+        loginBtn = v.findViewById(R.id.btnLogin);
 
         loginEmail.addTextChangedListener(new TextWatcher() {
             @Override
