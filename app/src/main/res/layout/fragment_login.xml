@@ -5,15 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".MainActivity">
+    tools:context=".loginFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/login_as"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_password" />
 
     <EditText
         android:id="@+id/login_email"
         style="@style/login_input"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:autofillHints="@string/e_mail"
-        android:hint="@string/e_mail"
+        android:autofillHints="@string/username"
+        android:hint="@string/username"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
@@ -29,33 +41,62 @@
         style="@style/login_input"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:autofillHints="@string/password"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword"
         android:imeActionLabel="@string/log_in"
         android:imeOptions="actionDone"
+        android:inputType="textPassword"
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_email"
-        app:layout_constraintVertical_bias="0.081"
-        android:autofillHints="@string/password" />
+        app:layout_constraintVertical_bias="0.081" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_password">
+
+        <RadioButton
+            android:id="@+id/buyerRadioBtn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:checked="true"
+            android:ems="10"
+            android:text="@string/buyer" />
+
+        <RadioButton
+            android:id="@+id/sellerRadioBtn"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:text="@string/seller" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/login"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:height="60dp"
+        android:enabled="false"
         android:text="@string/log_in"
         android:textSize="18sp"
-        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintVertical_bias="0.144" />
+        app:layout_constraintVertical_bias="0.58"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -100,4 +141,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
