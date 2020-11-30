@@ -1,0 +1,13 @@
+Index: app/src/main/java/com/example/aplus/culturaldress.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/aplus/culturaldress.java	(revision d17462cc01e4bd378e47aeb069f32aecf90ed04e)
++++ app/src/main/java/com/example/aplus/culturaldress.java	(date 1606694628029)
+@@ -63,4 +63,5 @@
+ 
+ 
+ 
++
+ }
