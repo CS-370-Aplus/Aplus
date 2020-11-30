@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 
 public class loginFragment extends Fragment {
 
+    View v;
+    EditText loginEmail, loginPassword;
+    Button loginBtn;
 
     public loginFragment() {
         // Required empty public constructor
@@ -22,22 +25,28 @@ public class loginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.fragment_login, container, false);
-        final EditText loginEmail = v.findViewById(R.id.login_email);
-        final EditText loginPassword = v.findViewById(R.id.login_password);
-        final Button loginBtn = v.findViewById(R.id.login);
+        v = inflater.inflate(R.layout.fragment_login, container, false);
+        loginEmail = v.findViewById(R.id.login_email);
+        loginPassword = v.findViewById(R.id.login_password);
+        loginBtn = v.findViewById(R.id.login);
+        loginBtn.setOnClickListener(view -> {
+            String username = loginEmail.getText().toString();
+            String password = loginPassword.getText().toString();
+            String type = "login";
+
+            LoginWorker loginWorker = new LoginWorker(v.getContext());
+            loginWorker.execute(type, username, password);
+        });
 
         loginEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() == 0){
-                    loginBtn.setEnabled(false);
-                }
+                loginBtn.setEnabled(charSequence.length() > 0 && loginPassword.getText().length() > 0);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() != 0);
+                loginBtn.setEnabled(charSequence.length() > 0 && loginPassword.getText().length() > 0);
             }
 
             @Override
@@ -49,14 +58,12 @@ public class loginFragment extends Fragment {
         loginPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() == 0){
-                    loginBtn.setEnabled(false);
-                }
+                loginBtn.setEnabled(charSequence.length() > 0 && loginEmail.getText().length() > 0);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() != 0);
+                loginBtn.setEnabled(charSequence.length() > 0 && loginEmail.getText().length() > 0);
             }
 
             @Override
@@ -64,11 +71,6 @@ public class loginFragment extends Fragment {
 
             }
         });
-
-
-
-
         return v;
     }
-
 }

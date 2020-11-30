@@ -9,6 +9,7 @@
     <string name="swipe_right_for_login">Swipe Right for LogIn</string>
     <string name="swipe_left_for_register">Swipe Left for Register</string>
     <string name="register_as">Register as:</string>
+    <string name="login_as">Login as:</string>
     <string name="buyer">Buyer</string>
     <string name="seller">Seller</string>
 

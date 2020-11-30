@@ -1,6 +1,7 @@
 package com.example.aplus;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -9,7 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-public class MainActivity extends FragmentActivity {
+public class LoginActivity extends FragmentActivity {
     private static final int NUM_PAGES = 2;
 
     private ViewPager2 viewPager;
