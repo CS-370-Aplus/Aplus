@@ -1,4 +1,4 @@
-package com.example.aplus;
+package com.example.aplus.login.fragments;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.aplus.R;
 
 public class loginFragment extends Fragment {
 
@@ -34,8 +36,7 @@ public class loginFragment extends Fragment {
             String password = loginPassword.getText().toString();
             String type = "login";
 
-            LoginWorker loginWorker = new LoginWorker(v.getContext());
-            loginWorker.execute(type, username, password);
+
         });
 
         loginEmail.addTextChangedListener(new TextWatcher() {

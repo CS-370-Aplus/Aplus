@@ -22,4 +22,6 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="home_text">"Home "</string>
+    <string name="zip_code">ZIP Code</string>
+    <string name="already_a_member_login">Already a member? LogIn</string>
 </resources>
