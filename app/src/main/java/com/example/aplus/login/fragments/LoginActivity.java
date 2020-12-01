@@ -1,6 +1,9 @@
-package com.example.aplus;
+package com.example.aplus.login.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -8,6 +11,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.aplus.R;
 import com.example.aplus.login.fragments.loginFragment;
 import com.example.aplus.login.fragments.registerFragment;
 
@@ -69,5 +73,12 @@ public class LoginActivity extends FragmentActivity {
         public int getItemCount() {
             return NUM_PAGES;
         }
+    }
+
+
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

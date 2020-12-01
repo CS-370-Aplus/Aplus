@@ -1,5 +1,6 @@
 package com.example.aplus.login.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,7 +20,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.aplus.LoginActivity;
 import com.example.aplus.R;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
@@ -49,12 +50,68 @@ public class registerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         editTextFirstname = view.findViewById(R.id.login_firstname);
+        editTextFirstname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextLastname = view.findViewById(R.id.login_lastname);
+        editTextLastname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextUsername = view.findViewById(R.id.login_username);
+        editTextUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextEmail = view.findViewById(R.id.login_email);
+        editTextEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextPassword = view.findViewById(R.id.login_password);
+        editTextPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextPasswordConfirm = view.findViewById(R.id.login_password2);
+        editTextPasswordConfirm.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         editTextZipCode = view.findViewById(R.id.login_zipcode);
+        editTextZipCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         radioGroupBuyerSeller = view.findViewById(R.id.login_radioGroup);
         buttonSignUp = view.findViewById(R.id.btnRegister);
         textViewLogin = view.findViewById(R.id.goLogin);
@@ -62,12 +119,13 @@ public class registerFragment extends Fragment {
         textViewLogin.setOnClickListener(view1 -> ((LoginActivity) Objects.requireNonNull(getActivity())).replaceFragments(0));
 
         buttonSignUp.setOnClickListener(view12 -> {
-            String firstname, lastname, username, email, password, zipcode, type, status;
+            String firstname, lastname, username, email, password, password2, zipcode, type, status;
             firstname = editTextFirstname.getText().toString();
             lastname = editTextLastname.getText().toString();
             username = editTextUsername.getText().toString();
             email = editTextEmail.getText().toString();
             password = editTextPassword.getText().toString();
+            password2 = editTextPasswordConfirm.getText().toString();
             zipcode = editTextZipCode.getText().toString();
 
             radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
@@ -92,8 +150,28 @@ public class registerFragment extends Fragment {
             String finalType = type;
             status = "WAITING CONFIRMATION";
 
-            if(!firstname.equals("") && !lastname.equals("") && !username.equals("") && !email.equals("") &&
-                    !password.equals("") && !zipcode.equals("")) {
+            if(firstname.equals("")){
+                editTextFirstname.setError("Enter First Name");
+                editTextFirstname.requestFocus();
+            }else if(lastname.equals("")){
+                editTextLastname.setError("Enter Last Name");
+                editTextLastname.requestFocus();
+            }else if(username.equals("")){
+                editTextUsername.setError("Enter Username");
+                editTextUsername.requestFocus();
+            }else if(email.equals("")){
+                editTextEmail.setError("Enter E-mail Address");
+                editTextEmail.requestFocus();
+            }else if(password.equals("")){
+                editTextPassword.setError("Enter Password");
+                editTextPassword.requestFocus();
+            }else if(!password.equals(password2)){
+                editTextPasswordConfirm.setError("Confirm Password doesn't match");
+                editTextPasswordConfirm.requestFocus();
+            }else if(zipcode.equals("")){
+                editTextZipCode.setError("Enter ZIP Code");
+                editTextZipCode.requestFocus();
+            }else{
                 //Start ProgressBar first (Set visibility VISIBLE)
                 Handler handler = new Handler(Looper.getMainLooper());
 
@@ -136,11 +214,13 @@ public class registerFragment extends Fragment {
                         }
                     }
                 });
-            }else{
-                Toast.makeText(getContext(), "All fields required", Toast.LENGTH_SHORT).show();
             }
 
         });
     }
 
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 }
