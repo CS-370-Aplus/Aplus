@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".LoginActivity">
+    tools:context=".login.fragments.registerFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -105,6 +105,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
+                android:id="@+id/login_radioGroup"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
@@ -113,10 +114,10 @@
                     android:id="@+id/buyerRadioBtn"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:text="@string/buyer"
                     android:checked="true"
                     android:fontFamily="@font/abhaya_libre_medium"
-                    android:textSize="20sp"/>
+                    android:text="@string/buyer"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/sellerRadioBtn"
@@ -135,7 +136,7 @@
                 android:drawableEnd="@drawable/ic_location"
                 android:hint="@string/zip_code"
                 android:importantForAutofill="no"
-                android:inputType="textPassword"/>
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/btnRegister"
