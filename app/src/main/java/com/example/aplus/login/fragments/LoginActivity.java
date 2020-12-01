@@ -12,15 +12,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.aplus.R;
-import com.example.aplus.login.fragments.loginFragment;
-import com.example.aplus.login.fragments.registerFragment;
 
 public class LoginActivity extends FragmentActivity {
     private static final int NUM_PAGES = 2;
 
     private ViewPager2 viewPager;
-
-    private FragmentStateAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -28,7 +24,7 @@ public class LoginActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = findViewById(R.id.viewPager);
-        pagerAdapter = new ScreenSlidePagerAdapter(this);
+        FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(this);
         pagerAdapter.createFragment(0);
         pagerAdapter.createFragment(1);
         viewPager.setAdapter(pagerAdapter);
@@ -47,7 +43,7 @@ public class LoginActivity extends FragmentActivity {
             viewPager.setCurrentItem(pos);
     }
 
-    private class ScreenSlidePagerAdapter extends FragmentStateAdapter{
+    private static class ScreenSlidePagerAdapter extends FragmentStateAdapter{
         public ScreenSlidePagerAdapter(FragmentActivity fa){
             super(fa);
         }
@@ -76,9 +72,4 @@ public class LoginActivity extends FragmentActivity {
     }
 
 
-
-    public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
 }
