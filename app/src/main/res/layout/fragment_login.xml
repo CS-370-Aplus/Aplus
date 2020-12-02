@@ -41,8 +41,8 @@
         style="@style/Login_EditText"
 
         android:drawableEnd="@drawable/ic_password"
-        android:autofillHints="@string/password"
-        android:hint="@string/password"
+        android:autofillHints="Password"
+        android:hint="password"
         android:inputType="textPassword"
 
         app:layout_constraintBottom_toBottomOf="parent"
