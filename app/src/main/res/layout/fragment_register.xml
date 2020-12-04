@@ -46,6 +46,7 @@
 
             <EditText
                 android:layout_width="match_parent"
+                abc
                 android:layout_height="wrap_content"
                 android:text="Dress for occassion"
                 app:layout_constraintTop_toBottomof="@+id/appTitle">
