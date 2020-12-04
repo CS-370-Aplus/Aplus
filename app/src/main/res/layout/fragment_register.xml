@@ -16,19 +16,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/register_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center|center_horizontal"
             android:orientation="vertical"
             android:paddingTop="50sp"
             android:paddingBottom="50sp"
-            android:verticalScrollbarPosition="defaultPosition"
-            android:clickable="true"
-            android:focusableInTouchMode="true">
+            android:verticalScrollbarPosition="defaultPosition">
 
             <TextView
                 android:id="@+id/appTitle"
@@ -36,13 +36,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/berkshire_swash"
-                android:text="@string/app_title"
+                android:text="DAMI BAZZAR"
                 android:textColor="@color/black"
                 android:textSize="45sp"
                 app:layout_constraintBottom_toTopOf="@+id/login_email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dress for occassion"
+                app:layout_constraintTop_toBottomof="@+id/appTitle">
+
+            </EditText>
+
+
 
             <EditText
                 android:id="@+id/login_firstname"
@@ -125,9 +135,9 @@
                     android:id="@+id/sellerRadioBtn"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:text="@string/seller"
                     android:fontFamily="@font/abhaya_libre_medium"
-                    android:textSize="20sp"/>
+                    android:text="@string/seller"
+                    android:textSize="20sp" />
 
             </RadioGroup>
 
@@ -146,9 +156,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
                 android:height="60dp"
-                android:text="@string/register"
                 android:fontFamily="@font/abhaya_libre_bold"
-                android:textSize="20sp"/>
+                android:text="@string/register"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/goLogin"
