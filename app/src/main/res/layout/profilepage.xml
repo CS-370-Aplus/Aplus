@@ -1,12 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".login.fragments.LoginActivity"
-    android:orientation="vertical">
-
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:orientation="vertical"
     android:layout_margin="4dip"
@@ -17,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:padding="20dp"
-       >
+        android:background="#8c0031">
         <ImageView
             android:id ="@+id/profpic"
             android:layout_width="100dp"
@@ -77,14 +69,7 @@
             android:text="000 000 0000"
             android:inputType="phone">
         </EditText>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editzip"
-            android:text="00000"
-            android:inputType="number"
-            android:maxLength="5">
-        </EditText>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -100,110 +85,68 @@
     </LinearLayout>
 
 </LinearLayout>
-<GridView
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-app:layout_constraintEnd_toEndOf="parent"
-/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".login.fragments.LoginActivity"
-    android:orientation="vertical">
+    tools:context=".login.fragments.LoginActivity">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:padding="20dp"
-    android:background="#FAA40E">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <ImageView
-        android:id ="@+id/profpic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerVertical="true"/>
-    <TextView
-        android:id="@+id/profilename"
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="252dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "profName"
-        android:layout_toRightOf="@id/profpic"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        >
+        android:orientation="horizontal" />
 
-    </TextView>
-</RelativeLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="20dp"
-    android:orientation="vertical">
-    <EditText
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editName"
-        android:text="uname">
+        android:orientation="horizontal" />
 
-    </EditText>
-    <EditText
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editFName"
-        android:text="fname">
-
-    </EditText>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editLName"
-        android:text="lname">
-
-    </EditText>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editemail"
-        android:text="email@mail.com"
-        android:inputType="textWebEmailAddress">
-
-    </EditText>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="150dp" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:id="@+id/editTextTextPostalAddress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editph"
-        android:text="000 000 0000"
-        android:inputType="phone">
-    </EditText>
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876"
+        tools:text="@tools:sample/us_zipcodes" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id= "@+id/dynamicinventory">
-
-        </TableLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-</androidx.constraintlayout.widget.ConstraintLayout> -->
+</androidx.constraintlayout.widget.ConstraintLayout>-->

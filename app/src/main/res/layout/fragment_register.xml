@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/register_layout"
@@ -44,16 +44,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <EditText
                 android:layout_width="match_parent"
-                abc
                 android:layout_height="wrap_content"
                 android:text="Dress for occassion"
                 app:layout_constraintTop_toBottomof="@+id/appTitle">
 
             </EditText>
-
-
 
             <EditText
                 android:id="@+id/login_firstname"

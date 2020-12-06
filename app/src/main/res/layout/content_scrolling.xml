@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ScrollingInventoryActivity"
+    android:background="@drawable/gradient_background"
     tools:showIn="@layout/activity_scrolling_inventory">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:text="List of items avilable" />
 
 </androidx.core.widget.NestedScrollView>
