@@ -34,7 +34,7 @@
                 android:id="@+id/appTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/berkshire_swash"
                 android:text="DAMI BAZZAR"
                 android:textColor="@color/black"
@@ -48,7 +48,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dress for occassion"
+                android:fontFamily="@font/berkshire_swash"
+                android:text="Dress for occasion"
                 app:layout_constraintTop_toBottomof="@+id/appTitle">
 
             </EditText>
