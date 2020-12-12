@@ -1,23 +1,41 @@
 package com.example.aplus.login.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aplus.R;
+import com.example.aplus.home.homeActivity;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import java.util.Objects;
 
 public class loginFragment extends Fragment {
 
-    View v;
-    EditText loginEmail, loginPassword;
-    Button loginBtn;
+    EditText editTextUsername, editTextPassword;
+    RadioGroup radioGroupBuyerSeller;
+    RadioButton radioButtonSelected;
+    Button buttonLogin;
+    TextView textViewSignup;
 
     public loginFragment() {
         // Required empty public constructor
@@ -27,44 +45,115 @@ public class loginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_login, container, false);
-        loginEmail = v.findViewById(R.id.login_email);
-        loginPassword = v.findViewById(R.id.login_password);
-        loginBtn = v.findViewById(R.id.btnLogin);
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
 
-        loginEmail.addTextChangedListener(new TextWatcher() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+        editTextUsername = view.findViewById(R.id.login_username);
+        editTextUsername.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() > 0 && loginPassword.getText().length() > 0);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() > 0 && loginPassword.getText().length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onFocusChange(View v, boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
             }
         });
 
-        loginPassword.addTextChangedListener(new TextWatcher() {
+        editTextPassword = view.findViewById(R.id.login_password);
+        editTextPassword.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() > 0 && loginEmail.getText().length() > 0);
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                loginBtn.setEnabled(charSequence.length() > 0 && loginEmail.getText().length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+            public void onFocusChange(View v,boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
             }
         });
-        return v;
+
+        radioGroupBuyerSeller = view.findViewById(R.id.login_radioGroup);
+        buttonLogin = view.findViewById(R.id.btnLogin);
+        textViewSignup = view.findViewById(R.id.goSignup);
+
+        textViewSignup.setOnClickListener(view1 -> ((LoginActivity) Objects.requireNonNull(getActivity())).replaceFragments(1));
+
+        buttonLogin.setOnClickListener(view12 -> {
+            String username, password, type;
+            username = editTextUsername.getText().toString();
+            password = editTextPassword.getText().toString();
+
+            radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
+            type = radioButtonSelected.getText().toString();
+
+            switch(radioGroupBuyerSeller.getCheckedRadioButtonId()){
+                case R.id.buyerRadioBtn:
+                    radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
+                    type = radioButtonSelected.getText().toString();
+                    break;
+                case R.id.sellerRadioBtn:
+                    radioButtonSelected = view.findViewById(R.id.sellerRadioBtn);
+                    type = radioButtonSelected.getText().toString();
+                    break;
+            }
+
+            if(type.equals("Buyer")){
+                type = "B";
+            }else if(type.equals("Seller")){
+                type = "S";
+            }
+
+            String finalType = type;
+
+            if(username.equals("")){
+                editTextUsername.setError("Enter your Username");
+                editTextUsername.requestFocus();
+            }else if(password.equals("")){
+                editTextPassword.setError("Enter your Password");
+                editTextPassword.requestFocus();
+            }else{
+                Handler handler = new Handler(Looper.getMainLooper());
+
+                handler.post(new Runnable(){
+                    @Override
+                    public void run(){
+                        String field[] = new String[3];
+                        field[0] = "username";
+                        field[1] = "password";
+                        field[2] = "type";
+
+                        String data[] = new String[3];
+                        data[0] = username;
+                        data[1] = password;
+                        data[2] = finalType;
+
+                        PutData putData = new PutData("https://psuwal.com/aplus/login.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+                                if(result.equals("Login Success")){
+                                    Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getContext(), homeActivity.class);
+                                    startActivity(intent);
+                                    editTextUsername.getText().clear();
+                                    editTextPassword.getText().clear();
+                                    radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
+                                    radioButtonSelected.setChecked(true);
+                                }else{
+                                    Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                                }
+                                Log.i("PutData", result);
+                            }
+                        }
+
+                    }
+                });
+            }
+
+        });
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

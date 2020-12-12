@@ -22,13 +22,13 @@
             android:id="@+id/register_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center|center_horizontal"
             android:orientation="vertical"
             android:paddingTop="50sp"
             android:paddingBottom="50sp"
-            android:verticalScrollbarPosition="defaultPosition"
-            android:clickable="true"
-            android:focusableInTouchMode="true">
+            android:verticalScrollbarPosition="defaultPosition">
 
             <TextView
                 android:id="@+id/appTitle"
@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/login_firstname"
+                android:id="@+id/signup_firstname"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_person"
@@ -54,7 +54,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/login_lastname"
+                android:id="@+id/signup_lastname"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_person"
@@ -63,7 +63,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/login_username"
+                android:id="@+id/signup_username"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_user"
@@ -72,7 +72,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/login_email"
+                android:id="@+id/signup_email"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_email"
@@ -81,7 +81,7 @@
                 android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/login_password"
+                android:id="@+id/signup_password"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_password"
@@ -90,7 +90,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/login_password2"
+                android:id="@+id/signup_password2"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_password"
@@ -107,7 +107,7 @@
                 android:textSize="20sp" />
 
             <RadioGroup
-                android:id="@+id/login_radioGroup"
+                android:id="@+id/signup_radioGroup"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:orientation="horizontal">
@@ -125,20 +125,21 @@
                     android:id="@+id/sellerRadioBtn"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
-                    android:text="@string/seller"
                     android:fontFamily="@font/abhaya_libre_medium"
-                    android:textSize="20sp"/>
+                    android:text="@string/seller"
+                    android:textSize="20sp" />
 
             </RadioGroup>
 
             <EditText
-                android:id="@+id/login_zipcode"
+                android:id="@+id/signup_zipcode"
                 style="@style/Login_EditText"
 
                 android:drawableEnd="@drawable/ic_location"
                 android:hint="@string/zip_code"
                 android:importantForAutofill="no"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="5" />
 
             <Button
                 android:id="@+id/btnRegister"
@@ -146,9 +147,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
                 android:height="60dp"
-                android:text="@string/register"
                 android:fontFamily="@font/abhaya_libre_bold"
-                android:textSize="20sp"/>
+                android:text="@string/register"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/goLogin"

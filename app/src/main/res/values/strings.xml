@@ -14,7 +14,7 @@
     <string name="seller">Seller</string>
 
 
-    <string name="app_title">App Name</string>
+    <string name="app_title">DAMI BAZZAR</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="username">Username</string>
@@ -25,4 +25,5 @@
     <string name="zip_code">ZIP Code</string>
     <string name="already_a_member_login">Already a member? LogIn</string>
     <string name="create_new_account_signup">Create new account? SignUp</string>
+    <string name="welcome_to_home_page">Welcome To Home Page!</string>
 </resources>
