@@ -175,7 +175,7 @@ public class registerFragment extends Fragment {
                     data[5] = zipcode;
                     data[6] = finalType;
                     data[7] = status;
-                    PutData putData = new PutData("https://psuwal.com/aplus/signup.php", "POST", field, data);
+                    PutData putData = new PutData("https://psuwal.com/aplus/DBConnection/signup.php", "POST", field, data);
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
                             String result = putData.getResult();

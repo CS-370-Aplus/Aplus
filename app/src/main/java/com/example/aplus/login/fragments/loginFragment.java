@@ -126,13 +126,15 @@ public class loginFragment extends Fragment {
                         data[1] = password;
                         data[2] = finalType;
 
-                        PutData putData = new PutData("https://psuwal.com/aplus/login.php", "POST", field, data);
+                        PutData putData = new PutData("https://www.psuwal.com/aplus/DBConnection/login.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
-                                if(result.equals("Login Success")){
+                                if(result.contains("Logged in")){
+                                    String passUsername = result.substring(result.lastIndexOf(" ")+1);
                                     Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getContext(), homeActivity.class);
+                                    intent.putExtra("SESSION_USERNAME", passUsername);
                                     startActivity(intent);
                                     editTextUsername.getText().clear();
                                     editTextPassword.getText().clear();
