@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +22,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aplus.R;
-import com.example.aplus.home.homeActivity;
+import com.example.aplus.home.home_activity;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
-
-import java.util.Objects;
 
 public class loginFragment extends Fragment {
 
@@ -75,7 +71,7 @@ public class loginFragment extends Fragment {
         buttonLogin = view.findViewById(R.id.btnLogin);
         textViewSignup = view.findViewById(R.id.goSignup);
 
-        textViewSignup.setOnClickListener(view1 -> ((LoginActivity) Objects.requireNonNull(getActivity())).replaceFragments(1));
+        textViewSignup.setOnClickListener(view1 -> ((LoginActivity) requireActivity()).replaceFragments(1));
 
         buttonLogin.setOnClickListener(view12 -> {
             String username, password, type;
@@ -133,7 +129,7 @@ public class loginFragment extends Fragment {
                                 if(result.contains("Logged in")){
                                     String passUsername = result.substring(result.lastIndexOf(" ")+1);
                                     Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getContext(), homeActivity.class);
+                                    Intent intent = new Intent(getContext(), home_activity.class);
                                     intent.putExtra("SESSION_USERNAME", passUsername);
                                     startActivity(intent);
                                     editTextUsername.getText().clear();
