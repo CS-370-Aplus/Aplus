@@ -31,7 +31,7 @@ public class loginFragment extends Fragment {
     RadioGroup radioGroupBuyerSeller;
     RadioButton radioButtonSelected;
     Button buttonLogin;
-    TextView textViewSignup;
+    TextView textViewSignup, textViewForgotPassword;
 
     public loginFragment() {
         // Required empty public constructor
@@ -70,8 +70,14 @@ public class loginFragment extends Fragment {
         radioGroupBuyerSeller = view.findViewById(R.id.login_radioGroup);
         buttonLogin = view.findViewById(R.id.btnLogin);
         textViewSignup = view.findViewById(R.id.goSignup);
+        textViewForgotPassword = view.findViewById(R.id.forgotpasswordtext);
 
         textViewSignup.setOnClickListener(view1 -> ((LoginActivity) requireActivity()).replaceFragments(1));
+
+        textViewForgotPassword.setOnClickListener(view1-> {
+            Intent intent = new Intent(getContext(), forgotPassword.class);
+            startActivity(intent);
+        });
 
         buttonLogin.setOnClickListener(view12 -> {
             String username, password, type;

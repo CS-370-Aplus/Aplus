@@ -31,4 +31,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="dress_for_the_occasion">Dress for the Occasion</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="recovery_email">Recovery Email</string>
+    <string name="submit">submit</string>
+    <string name="back_to_login"><u>Back to LogIn</u></string>
 </resources>
