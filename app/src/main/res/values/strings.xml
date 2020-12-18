@@ -30,5 +30,13 @@
     <string name="title_activity_home_activity">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="dress_for_the_occasion">Dress For The Occasion</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="recovery_email">Recovery Email</string>
+    <string name="submit">Submit</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="profile">Profile</string>
+
+
 </resources>
