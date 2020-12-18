@@ -24,21 +24,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abhaya_libre_medium"
+        android:text="@string/dress_for_the_occasion"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle"
+        app:layout_constraintVertical_bias="0.0" />
+
     <EditText
         android:id="@+id/login_username"
         style="@style/Login_EditText"
 
-        android:drawableEnd="@drawable/ic_user"
-        android:inputType="textEmailAddress"
         android:autofillHints="@string/username"
+        android:drawableEnd="@drawable/ic_user"
         android:hint="@string/username"
+        android:inputType="textEmailAddress"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <EditText
         android:id="@+id/login_password"
@@ -46,7 +61,7 @@
 
         android:drawableEnd="@drawable/ic_password"
         android:autofillHints="Password"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,8 +88,8 @@
         android:id="@+id/login_radioGroup"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:fontFamily="@font/abhaya_libre_medium"
+        android:orientation="horizontal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,17 +101,17 @@
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:checked="true"
-            android:text="@string/buyer"
             android:fontFamily="@font/abhaya_libre_medium"
-            android:textSize="20sp"/>
+            android:text="@string/buyer"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/sellerRadioBtn"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:fontFamily="@font/abhaya_libre_medium"
-            android:textSize="20sp"
-            android:text="@string/seller" />
+            android:text="@string/seller"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
@@ -105,17 +120,16 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:height="60dp"
-        android:text="@string/log_in"
         android:fontFamily="@font/abhaya_libre_bold"
+        android:text="@string/log_in"
         android:textSize="20sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintVertical_bias="0.58"
-        />
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/goSignup"
@@ -129,10 +143,21 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgotpasswordtext"
+        app:layout_constraintVertical_bias="0.422" />
+
+    <TextView
+        android:id="@+id/forgotpasswordtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/forgot_password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.215" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
