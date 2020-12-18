@@ -37,6 +37,8 @@
     <string name="submit">Submit</string>
     <string name="back_to_login">Back to Login</string>
     <string name="profile">Profile</string>
+    <string name="signup">Sign Up</string>
+    <string name="notloggedin">Not Signed in. Please LogIn or Sign Up for new Account.</string>
 
 
 </resources>

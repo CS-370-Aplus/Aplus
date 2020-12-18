@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.aplus.R;
 
 public class LoginActivity extends FragmentActivity {
+    String sessionUser, sessionPage;
+
     private static final int NUM_PAGES = 2;
 
     private ViewPager2 viewPager;
@@ -23,11 +26,15 @@ public class LoginActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sessionUser= getIntent().getStringExtra("SESSION_USERNAME");
+        sessionPage= getIntent().getStringExtra("SESSION_PAGE");
+
         viewPager = findViewById(R.id.viewPager);
         FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(this);
         pagerAdapter.createFragment(0);
         pagerAdapter.createFragment(1);
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(Integer.parseInt(sessionPage));
     }
 
     @Override
