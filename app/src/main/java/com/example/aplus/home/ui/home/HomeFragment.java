@@ -9,7 +9,6 @@ import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-
 import com.example.aplus.R;
 
 import java.io.UnsupportedEncodingException;

@@ -16,7 +16,7 @@
         <activity
             android:name=".home.home_activity"
             android:theme="@style/Theme.Aplus"
-            android:label="@string/title_activity_home_activity">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

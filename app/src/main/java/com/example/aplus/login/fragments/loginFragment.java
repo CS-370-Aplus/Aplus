@@ -140,6 +140,7 @@ public class loginFragment extends Fragment {
                                     Intent intent = new Intent(getContext(), home_activity.class);
                                     intent.putExtra("SESSION_USERNAME", passUsername);
                                     startActivity(intent);
+                                    getActivity().finish();
                                     editTextUsername.getText().clear();
                                     editTextPassword.getText().clear();
                                     radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
