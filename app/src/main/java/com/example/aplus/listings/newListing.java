@@ -25,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -225,7 +226,7 @@ public class newListing extends AppCompatActivity {
 
     private void encodeBitmapImage(Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
 
         byte[] bytesOfImage = byteArrayOutputStream.toByteArray();
         encodedImageString = android.util.Base64.encodeToString(bytesOfImage, Base64.DEFAULT);
@@ -276,6 +277,12 @@ public class newListing extends AppCompatActivity {
                 return map;
             }
         };
+
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                8000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(request);

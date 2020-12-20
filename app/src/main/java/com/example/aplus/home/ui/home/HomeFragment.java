@@ -2,6 +2,7 @@ package com.example.aplus.home.ui.home;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment {
             e.printStackTrace();
         }
         webview = view.findViewById(R.id.homewebview);
+        webview.setBackgroundColor(Color.TRANSPARENT);
         webview.postUrl(url, postData.getBytes());
         return view;
     }

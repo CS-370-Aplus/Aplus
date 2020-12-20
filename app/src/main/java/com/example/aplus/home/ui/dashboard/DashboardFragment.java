@@ -3,11 +3,14 @@ package com.example.aplus.home.ui.dashboard;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +26,9 @@ import com.example.aplus.listings.newListing;
 import com.example.aplus.login.fragments.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class DashboardFragment extends Fragment {
     String sessionUser, sessionType;
 
@@ -30,6 +36,8 @@ public class DashboardFragment extends Fragment {
 
     Button buttonLogin, buttonSignup;
     Button buttonnewListing;
+    EditText editTextSearch;
+    WebView webviewSeller;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -88,6 +96,30 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        editTextSearch = view.findViewById(R.id.sellerselfsearch);
+
+        webviewSeller = view.findViewById(R.id.sellerwebview);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
+        String sessionUser;
+        sessionUser = sharedPreferences.getString("Username", "");
+        //Toast.makeText(getContext(), sessionUser, Toast.LENGTH_SHORT).show();
+        if(sessionUser == null){
+            sessionUser = "";
+        }
+        String url = "http://www.psuwal.com/aplus/sellerdashboard.php";
+        String postData = null;
+        try {
+            postData = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        webviewSeller.setBackgroundColor(Color.TRANSPARENT);
+        webviewSeller.setVerticalScrollBarEnabled(true);
+        webviewSeller.postUrl(url, postData.getBytes());
+
+
+        /************BuyerDashboard*********************/
 
 
     }

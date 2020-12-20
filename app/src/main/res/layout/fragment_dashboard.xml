@@ -11,7 +11,9 @@
         android:id="@+id/dashboardloginlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/sellerScrollView"
@@ -25,9 +27,10 @@
         <LinearLayout
             android:id="@+id/sellerlinearlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="ScrollViewSize">
 
             <TextView
                 android:id="@+id/sellerdashboardtxt"
@@ -66,6 +69,11 @@
                 android:drawableStart="@drawable/ic_search"
                 android:hint="@string/search_your_listings"
                 android:inputType="text" />
+
+            <WebView
+                android:id="@+id/sellerwebview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 
