@@ -33,17 +33,25 @@ public class DashboardFragment extends Fragment {
     String sessionUser, sessionType;
 
     View buyerLayout, sellerLayout, loginLayout;
+    View buyerScrollview, sellerScrollview;
 
     Button buttonLogin, buttonSignup;
     Button buttonnewListing;
-    EditText editTextSearch;
-    WebView webviewSeller;
+    Button buttonsellerSearch, buttonbuyerSearch;
+    EditText editTextSellerSearch,  editTextBuyerSearch;
+    WebView webviewSeller, webviewBuyer;
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         buyerLayout = view.findViewById(R.id.buyerlinearlayout);
+        buyerScrollview = view.findViewById(R.id.buyerScrollview);
         sellerLayout = view.findViewById(R.id.sellerlinearlayout);
+        sellerScrollview = view.findViewById(R.id.sellerScrollView);
         loginLayout = view.findViewById(R.id.dashboardaskloginlayout);
+
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
         sessionUser = sharedPreferences.getString("Username", "");
@@ -52,16 +60,22 @@ public class DashboardFragment extends Fragment {
         if (sessionUser.equals("")) {
             loginLayout.setVisibility(View.VISIBLE);
             sellerLayout.setVisibility(View.GONE);
+            sellerScrollview.setVisibility(View.GONE);
             buyerLayout.setVisibility(View.GONE);
+            buyerScrollview.setVisibility(View.GONE);
         } else{
             if (sessionType.equals("S")) {
                 sellerLayout.setVisibility(View.VISIBLE);
+                sellerScrollview.setVisibility(View.VISIBLE);
                 loginLayout.setVisibility(View.GONE);
                 buyerLayout.setVisibility(View.GONE);
+                buyerScrollview.setVisibility(View.GONE);
             } else{
                 buyerLayout.setVisibility(View.VISIBLE);
+                buyerScrollview.setVisibility(View.VISIBLE);
                 loginLayout.setVisibility(View.GONE);
                 sellerLayout.setVisibility(View.GONE);
+                sellerScrollview.setVisibility(View.GONE);
             }
         }
         return view;
@@ -97,16 +111,10 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        editTextSearch = view.findViewById(R.id.sellerselfsearch);
+        editTextSellerSearch = view.findViewById(R.id.sellerselfsearch);
 
         webviewSeller = view.findViewById(R.id.sellerwebview);
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
-        String sessionUser;
-        sessionUser = sharedPreferences.getString("Username", "");
-        //Toast.makeText(getContext(), sessionUser, Toast.LENGTH_SHORT).show();
-        if(sessionUser == null){
-            sessionUser = "";
-        }
+
         String url = "http://www.psuwal.com/aplus/sellerdashboard.php";
         String postData = null;
         try {
@@ -120,6 +128,21 @@ public class DashboardFragment extends Fragment {
 
 
         /************BuyerDashboard*********************/
+
+        editTextBuyerSearch = view.findViewById(R.id.buyersearchbar);
+        buttonbuyerSearch = view.findViewById(R.id.buyersearchbutton);
+
+        webviewBuyer = view.findViewById(R.id.buyerwebview);
+
+        url = "http://www.psuwal.com/aplus/buyerdashboard.php";
+        try {
+            postData = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        webviewBuyer.setBackgroundColor(Color.TRANSPARENT);
+        webviewBuyer.setVerticalScrollBarEnabled(true);
+        webviewBuyer.postUrl(url, postData.getBytes());
 
 
     }

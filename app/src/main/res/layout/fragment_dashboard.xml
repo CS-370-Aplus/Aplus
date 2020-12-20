@@ -7,14 +7,6 @@
     android:background="@drawable/gradient_background"
     tools:context=".home.ui.dashboard.DashboardFragment">
 
-    <LinearLayout
-        android:id="@+id/dashboardloginlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
     <ScrollView
         android:id="@+id/sellerScrollView"
         android:layout_width="match_parent"
@@ -29,8 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical"
-            tools:ignore="ScrollViewSize">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/sellerdashboardtxt"
@@ -81,18 +72,43 @@
         android:id="@+id/buyerScrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/buyerlinearlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/buyersearchbar"
+                    android:layout_width="310sp"
+                    android:layout_height="wrap_content"
+                    style="@style/Login_EditText"
+                    android:inputType="text"
+                    android:drawableStart="@drawable/ic_search"
+                    android:hint="@string/search" />
+
+                <Button
+                    android:id="@+id/buyersearchbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search" />
+            </LinearLayout>
+
+            <WebView
+                android:id="@+id/buyerwebview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
@@ -101,12 +117,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/profileinfodisplay"

@@ -54,6 +54,7 @@
     <string name="for_male_female_unisex">For: Male, Female, Unisex</string>
     <string name="size_small_medium_large_extralarge">Size: Small, Medium, Large, ExtraLarge</string>
     <string name="load_picture">Load Picture</string>
+    <string name="search">Search</string>
 
     <string-array name="color">
         <item>Red</item>
