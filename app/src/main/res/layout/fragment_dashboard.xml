@@ -11,6 +11,8 @@
         android:id="@+id/sellerScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,14 +54,26 @@
                 android:layout_height="5dp"
                 android:background="?android:attr/listDivider" />
 
-            <EditText
-                android:id="@+id/sellerselfsearch"
-                style="@style/Login_EditText"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_search"
-                android:hint="@string/search_your_listings"
-                android:inputType="text" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/sellersearchbar"
+                    style="@style/Login_EditText"
+                    android:layout_width="310sp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_search"
+                    android:hint="@string/search_your_listings"
+                    android:inputType="text" />
+
+                <Button
+                    android:id="@+id/sellersearchbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search" />
+            </LinearLayout>
 
             <WebView
                 android:id="@+id/sellerwebview"
@@ -72,16 +86,20 @@
         android:id="@+id/buyerScrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <LinearLayout
             android:id="@+id/buyerlinearlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,12 +108,12 @@
 
                 <EditText
                     android:id="@+id/buyersearchbar"
+                    style="@style/Login_EditText"
                     android:layout_width="310sp"
                     android:layout_height="wrap_content"
-                    style="@style/Login_EditText"
-                    android:inputType="text"
                     android:drawableStart="@drawable/ic_search"
-                    android:hint="@string/search" />
+                    android:hint="@string/search"
+                    android:inputType="text" />
 
                 <Button
                     android:id="@+id/buyersearchbutton"
@@ -107,7 +125,7 @@
             <WebView
                 android:id="@+id/buyerwebview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 
@@ -117,10 +135,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <TextView
             android:id="@+id/profileinfodisplay"

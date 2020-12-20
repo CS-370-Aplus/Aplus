@@ -1,5 +1,6 @@
 package com.example.aplus.home.ui.dashboard;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,23 +9,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 
 import com.example.aplus.R;
-import com.example.aplus.home.ui.profile.ProfileFragment;
 import com.example.aplus.listings.newListing;
 import com.example.aplus.login.fragments.LoginActivity;
-import com.google.android.material.navigation.NavigationView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -111,39 +109,104 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        editTextSellerSearch = view.findViewById(R.id.sellerselfsearch);
+        editTextSellerSearch = view.findViewById(R.id.sellersearchbar);
+        editTextSellerSearch.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v,boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
+            }
+        });
+
 
         webviewSeller = view.findViewById(R.id.sellerwebview);
 
-        String url = "http://www.psuwal.com/aplus/sellerdashboard.php";
-        String postData = null;
+        String urlSeller = "http://www.psuwal.com/aplus/sellerdashboard.php";
+        String postDataSeller = null;
         try {
-            postData = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
+            postDataSeller = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         webviewSeller.setBackgroundColor(Color.TRANSPARENT);
         webviewSeller.setVerticalScrollBarEnabled(true);
-        webviewSeller.postUrl(url, postData.getBytes());
+        webviewSeller.postUrl(urlSeller, postDataSeller.getBytes());
+
+        buttonsellerSearch = view.findViewById(R.id.sellersearchbutton);
+        buttonsellerSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String keyword;
+                keyword = editTextSellerSearch.getText().toString();
+                if(keyword.equals("")){
+                    editTextSellerSearch.setError("Search is EMPTY");
+                    editTextSellerSearch.requestFocus();
+                }else{
+                    String postSellerSearch = null;
+                    try {
+                        postSellerSearch = "keyword="+ URLEncoder.encode(keyword,"UTF-8");
+                        postSellerSearch += "&username="+ URLEncoder.encode(sessionUser,"UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    webviewSeller.postUrl(urlSeller, postSellerSearch.getBytes());
+                }
+            }
+        });
 
 
         /************BuyerDashboard*********************/
 
         editTextBuyerSearch = view.findViewById(R.id.buyersearchbar);
-        buttonbuyerSearch = view.findViewById(R.id.buyersearchbutton);
+        editTextBuyerSearch.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v,boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         webviewBuyer = view.findViewById(R.id.buyerwebview);
 
-        url = "http://www.psuwal.com/aplus/buyerdashboard.php";
+        String urlBuyer = "http://www.psuwal.com/aplus/buyerdashboard.php";
+        String postDataBuyer = null;
         try {
-            postData = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
+            postDataBuyer = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         webviewBuyer.setBackgroundColor(Color.TRANSPARENT);
         webviewBuyer.setVerticalScrollBarEnabled(true);
-        webviewBuyer.postUrl(url, postData.getBytes());
+        webviewBuyer.postUrl(urlBuyer, postDataBuyer.getBytes());
 
+        buttonbuyerSearch = view.findViewById(R.id.buyersearchbutton);
+        buttonbuyerSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String keyword;
+                keyword = editTextBuyerSearch.getText().toString();
+                if(keyword.equals("")){
+                    editTextBuyerSearch.setError("Search is EMPTY");
+                    editTextBuyerSearch.requestFocus();
+                }else{
+                    String postBuyerSearch = null;
+                    try {
+                        postBuyerSearch = "keyword="+ URLEncoder.encode(keyword,"UTF-8");
+                        postBuyerSearch += "&username="+ URLEncoder.encode(sessionUser,"UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    webviewBuyer.postUrl(urlBuyer, postBuyerSearch.getBytes());
+                }
+            }
+        });
 
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
