@@ -59,6 +59,34 @@ public class newListing extends AppCompatActivity {
 
     private static final String url = "https://www.psuwal.com/aplus/uploadconfirm.php";
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_newlisting);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
+        sessionUser = sharedPreferences.getString("Username", "");
+        Toast.makeText(this, sessionUser, Toast.LENGTH_SHORT).show();
+
+        editTextTitle = findViewById(R.id.itemtitle);
+        editTextTitle.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v,boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
+            }
+        });
+
+        editTextColor = findViewById(R.id.itemcolor);
+        editTextColor.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v,boolean hasFocus){
+                if(!hasFocus){
+                    hideKeyboard(v);
+                }
+            }
+        });
 
         editTextSize = findViewById(R.id.itemsize);
         editTextSize.setOnFocusChangeListener(new View.OnFocusChangeListener(){
