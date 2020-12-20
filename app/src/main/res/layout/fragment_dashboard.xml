@@ -7,6 +7,67 @@
     android:background="@drawable/gradient_background"
     tools:context=".home.ui.dashboard.DashboardFragment">
 
+    <LinearLayout
+        android:id="@+id/dashboardloginlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sellerScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/sellerlinearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sellerdashboardtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:fontFamily="@font/abhaya_libre_bold"
+                android:text="@string/seller_dashboard"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnnewlisting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_listings" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/sellerselfsearch"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_search"
+                android:hint="@string/search_your_listings"
+                android:inputType="text" />
+        </LinearLayout>
+    </ScrollView>
 
     <ScrollView
         android:id="@+id/buyerScrollview"
