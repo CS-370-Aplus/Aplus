@@ -15,7 +15,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplus"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".listings.newListing"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Aplus"
+            android:windowSoftInputMode="adjustNothing">
 
+        </activity>
+
+
+        <activity
+            android:name=".listings.ImageUpload"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Aplus"
+            android:windowSoftInputMode="adjustNothing">
+
+        </activity>
         <activity
             android:name=".home.home_activity"
             android:label="@string/app_name"
@@ -33,7 +48,13 @@
             android:windowSoftInputMode="adjustNothing">
 
         </activity>
+        <activity
+            android:name=".login.fragments.forgotPassword"
+            android:label="ForgotPassword"
+            android:theme="@style/Theme.Aplus"
+            android:windowSoftInputMode="adjustNothing">
 
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
