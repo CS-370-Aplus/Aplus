@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -121,6 +123,13 @@ public class DashboardFragment extends Fragment {
 
 
         webviewSeller = view.findViewById(R.id.sellerwebview);
+        webviewSeller.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                view.loadUrl(request.getUrl().toString());
+                return false;
+            }
+        });
 
         String urlSeller = "http://www.psuwal.com/aplus/sellerdashboard.php";
         String postDataSeller = null;
@@ -169,6 +178,13 @@ public class DashboardFragment extends Fragment {
         });
 
         webviewBuyer = view.findViewById(R.id.buyerwebview);
+        webviewBuyer.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                view.loadUrl(request.getUrl().toString());
+                return false;
+            }
+        });
 
         String urlBuyer = "http://www.psuwal.com/aplus/buyerdashboard.php";
         String postDataBuyer = null;
