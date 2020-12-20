@@ -44,7 +44,83 @@
                 android:hint="@string/item_title"
                 android:inputType="text" />
 
+            <EditText
+                android:id="@+id/itemcolor"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/item_color"
+                android:inputType="text"/>
 
+            <EditText
+                android:id="@+id/itemsize"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/size_small_medium_large_extralarge"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/itemgender"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/for_male_female_unisex"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/itemdescription"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/item_description"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/itemquantity"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/quantity_available"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/itemprice"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/price"
+                android:inputType="numberDecimal" />
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:src="@drawable/ic_image"/>
+
+            <Button
+                android:id="@+id/buttonLoadPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:text="@string/load_picture" />
+
+            <Button
+                android:id="@+id/btnadditem"
+                android:layout_width="150sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="20sp"
+                android:fontFamily="@font/abhaya_libre_medium"
+                android:gravity="center"
+                android:text="@string/add_item"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>
