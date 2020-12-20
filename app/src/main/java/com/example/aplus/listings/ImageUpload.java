@@ -55,6 +55,30 @@ public class ImageUpload extends Activity {
         buttonbrowse = findViewById(R.id.buttonLoadPicture);
         buttonUpload = findViewById(R.id.buttonupload);
 
+        buttonbrowse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dexter.withActivity(ImageUpload.this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse response) {
+                        Intent intent  = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        startActivityForResult(Intent.createChooser(intent, "Browse Image"), 1);
+
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse response) {
+
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
+            }
+        });
 
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,5 +114,35 @@ public class ImageUpload extends Activity {
         encodedImageString = android.util.Base64.encodeToString(bytesOfImage, Base64.DEFAULT);
     }
 
+    private void uploadDataToDb() {
+        SharedPreferences sharedPreferences = getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
+        sessionUser = sharedPreferences.getString("Username", "");
 
+        final String name = sessionUser;
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                img.setImageResource(R.drawable.ic_image);
+                Toast.makeText(ImageUpload.this, response.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Toast.makeText(ImageUpload.this, error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("name", name);
+                map.put("upload", encodedImageString);
+                return map;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        queue.add(request);
+    }
 }
