@@ -7,40 +7,96 @@
     android:background="@drawable/gradient_background"
     tools:context=".home.ui.profile.ProfileFragment">
 
-    <WebView
-        android:id="@+id/profilewebview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
 
-    </WebView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/profileviewlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/profilefirstname"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:hint="@string/first_name"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/profilelastname"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/last_name"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/profileusername"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/username"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/profileemail"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/e_mail"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/profilezipcode"
+                style="@style/Login_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/zip_code"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:id="@+id/profileLinearlayout"
+        android:id="@+id/profileloginlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <TextView
             android:id="@+id/profileinfodisplay"
-            android:fontFamily="@font/abhaya_libre_bold"
-            android:textSize="25sp"
-            android:textAlignment="center"
-            android:layout_marginBottom="40sp"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notloggedin" />
+            android:layout_marginBottom="40sp"
+            android:fontFamily="@font/abhaya_libre_bold"
+            android:text="@string/notloggedin"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,21 +108,21 @@
                 android:id="@+id/btnlogin"
                 android:layout_width="150sp"
                 android:layout_height="50sp"
-                android:fontFamily="@font/abhaya_libre_bold"
-                android:textSize="18sp"
-
                 android:layout_marginEnd="30sp"
-                android:text="@string/log_in" />
+                android:fontFamily="@font/abhaya_libre_bold"
+
+                android:text="@string/log_in"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnsignup"
                 android:layout_width="150sp"
                 android:layout_height="50sp"
-                android:fontFamily="@font/abhaya_libre_bold"
-                android:textSize="18sp"
-
                 android:layout_marginStart="30sp"
-                android:text="@string/signup" />
+                android:fontFamily="@font/abhaya_libre_bold"
+
+                android:text="@string/signup"
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 

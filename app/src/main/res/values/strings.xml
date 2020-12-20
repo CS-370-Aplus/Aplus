@@ -39,6 +39,49 @@
     <string name="profile">Profile</string>
     <string name="signup">Sign Up</string>
     <string name="notloggedin">Not Signed in. Please LogIn or Sign Up for new Account.</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="profilepic">profilepic</string>
+    <string name="seller_dashboard"><u>Seller Dashboard</u></string>
+    <string name="new_listings">New Listings</string>
+    <string name="search_your_listings">Search your listings</string>
+    <string name="item_title">Item Title</string>
+    <string name="item_description">Item Description</string>
+    <string name="quantity_available">Quantity Available</string>
+    <string name="price">Price</string>
+    <string name="add_new_listing"><u>Add New Listing</u></string>
+    <string name="add_item">Add Item</string>
+    <string name="item_color">Item Color</string>
+    <string name="for_male_female_unisex">For: Male, Female, Unisex</string>
+    <string name="size_small_medium_large_extralarge">Size: Small, Medium, Large, ExtraLarge</string>
+    <string name="load_picture">Load Picture</string>
+
+    <string-array name="color">
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Blue</item>
+        <item>Brown</item>
+        <item>Black</item>
+        <item>Gray</item>
+        <item>White</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Violet</item>
+    </string-array>
+
+    <string-array name="size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra Large</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Unisex</item>
+    </string-array>
 
 
 </resources>

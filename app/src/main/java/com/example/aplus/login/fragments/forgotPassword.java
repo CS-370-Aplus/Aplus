@@ -16,24 +16,7 @@ public class forgotPassword extends AppCompatActivity {
     EditText editTextemail;
     TextView textViewLogin;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.forgot_password);
 
-        editTextemail = findViewById(R.id.recovery_email);
-        editTextemail.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus){
-                hideKeyboard(v);
-            }
-        });
-
-        textViewLogin = findViewById(R.id.gotologin);
-        textViewLogin.setOnClickListener(view->{
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        });
 
     }
 

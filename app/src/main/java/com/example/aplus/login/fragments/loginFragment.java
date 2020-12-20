@@ -43,6 +43,7 @@ public class loginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -73,6 +74,8 @@ public class loginFragment extends Fragment {
         buttonLogin = view.findViewById(R.id.btnLogin);
         textViewSignup = view.findViewById(R.id.goSignup);
         textViewForgotPassword = view.findViewById(R.id.forgotpasswordtext);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
 
         textViewSignup.setOnClickListener(view1 -> ((LoginActivity) requireActivity()).replaceFragments(1));
 
@@ -115,45 +118,7 @@ public class loginFragment extends Fragment {
                 editTextPassword.setError("Enter your Password");
                 editTextPassword.requestFocus();
             }else{
-                Handler handler = new Handler(Looper.getMainLooper());
 
-                handler.post(new Runnable(){
-                    @Override
-                    public void run(){
-                        String field[] = new String[3];
-                        field[0] = "username";
-                        field[1] = "password";
-                        field[2] = "type";
-
-                        String data[] = new String[3];
-                        data[0] = username;
-                        data[1] = password;
-                        data[2] = finalType;
-
-                        PutData putData = new PutData("https://www.psuwal.com/aplus/DBConnection/login.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
-                                String result = putData.getResult();
-                                if(result.contains("Logged in")){
-                                    String passUsername = result.substring(result.lastIndexOf(" ")+1);
-                                    Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getContext(), home_activity.class);
-                                    intent.putExtra("SESSION_USERNAME", passUsername);
-                                    startActivity(intent);
-                                    getActivity().finish();
-                                    editTextUsername.getText().clear();
-                                    editTextPassword.getText().clear();
-                                    radioButtonSelected = view.findViewById(R.id.buyerRadioBtn);
-                                    radioButtonSelected.setChecked(true);
-                                }else{
-                                    Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
-                                }
-                                Log.i("PutData", result);
-                            }
-                        }
-
-                    }
-                });
             }
 
         });
