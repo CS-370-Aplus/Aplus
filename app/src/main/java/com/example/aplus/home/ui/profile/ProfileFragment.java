@@ -43,8 +43,54 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        profileloginlayout = view.findViewById(R.id.profileloginlayout);
+        profileviewlayout = view.findViewById(R.id.profileviewlayout);
 
-            }
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("SavedPreferences", Context.MODE_PRIVATE);
+        sessionUser = sharedPreferences.getString("Username", "");
+        if(sessionUser.equals("")){
+            profileviewlayout.setVisibility(View.GONE);
+            profileloginlayout.setVisibility(View.VISIBLE);
+        }else{
+            profileloginlayout.setVisibility(View.GONE);
+
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    String field[] = new String[1];
+                    field[0] = "username";
+
+                    String data[] = new String[1];
+                    data[0] = sessionUser;
+
+                    PutData putData = new PutData("https://www.psuwal.com/aplus/DBConnection/profileinfo.php", "POST", field, data);
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+                            if(result.contains("Ready")){
+                                String[] info = result.split(", ");
+                                firstname = info[1];
+                                lastname = info[2];
+                                username = info[3];
+                                email = info[4];
+                                zipcode = info[5];
+                                userid = info[6];
+
+                                editTextfirstname.setText(firstname);
+                                editTextlastname.setText(lastname);
+                                editTextusername.setText(username);
+                                editTextemail.setText(email);
+                                editTextzipcode.setText(zipcode);
+                            }else {
+                                Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                            }
+                            Log.i("PutData", result);
+                        }
+                    }
+                }
             });
 
 
