@@ -31,6 +31,15 @@ public class HomeFragment extends Fragment {
         if(sessionUser == null){
             sessionUser = "";
         }
-
+        String url = "http://www.psuwal.com/aplus/home.php";
+        String postData = null;
+        try {
+            postData = "username="+ URLEncoder.encode(sessionUser,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        webview = view.findViewById(R.id.homewebview);
+        webview.postUrl(url, postData.getBytes());
+        return view;
     }
 }

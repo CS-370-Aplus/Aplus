@@ -59,6 +59,35 @@ public class DashboardFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        buttonLogin = view.findViewById(R.id.btnlogin);
+        buttonLogin.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            intent.putExtra("SESSION_PAGE", "0");
+            startActivity(intent);
+        });
+
+        buttonSignup = view.findViewById(R.id.btnsignup);
+        buttonSignup.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            intent.putExtra("SESSION_PAGE", "1");
+            startActivity(intent);
+        });
+
+
+        /************SellerDashboard*********************/
+
+        buttonnewListing = view.findViewById(R.id.btnnewlisting);
+        buttonnewListing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), newListing.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
